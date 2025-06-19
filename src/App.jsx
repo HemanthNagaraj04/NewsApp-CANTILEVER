@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <MenuBar setSelectedCategory={setSelectedCategory}/>
+      <MenuBar setSelectedCategory={setSelectedCategory} />
       <Home selectedCategory={selectedCategory}/>
     </div>
   )
