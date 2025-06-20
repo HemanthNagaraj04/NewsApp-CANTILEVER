@@ -1,8 +1,16 @@
 import searchImg from "../assets/search.png";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Navbar = () => {
+    const navigate = useNavigate();
 
+    const handleSignIn = () => {
+        navigate('/signin');
+    };
     return (
+
         <div className='w-full bg-white relative '>
             <div className='flex flex-col md:flex-row items-center justify-between p-4 gap-4 md:gap-0 mx-4'>
                 <h1 className="text-4xl font-normal md:text-3xl text-black">News App</h1>
@@ -12,7 +20,8 @@ const Navbar = () => {
                         placeholder='Search News...'
                         className="focus:outline-none w-full text-black placeholder-gray-400" />
                 </div>
-                <button className='bg-blue-600 hover:bg-blue-700 cursor-pointer rounded-md px-4 py-2 text-white text-sm absolute top-4 right-7 md:static'>
+                <button className='bg-blue-600 hover:bg-blue-700 cursor-pointer rounded-md px-4 py-2 text-white text-sm absolute top-4 right-7 md:static'
+                    onClick={handleSignIn}>
                     Sign In
                 </button>
             </div>

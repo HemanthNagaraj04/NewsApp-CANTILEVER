@@ -1,16 +1,15 @@
-import Navbar from './components/Navbar'
-import MenuBar from './components/MenuBar'
-import Home from './components/Home'
-import { useState } from 'react'
-const App = () => {
-  const [selectedCategory,setSelectedCategory]=useState("general");
-  return (
-    <div>
-      <Navbar />
-      <MenuBar setSelectedCategory={setSelectedCategory} />
-      <Home selectedCategory={selectedCategory}/>
-    </div>
-  )
-}
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage.jsx';
+import SignIn from './pages/SignIn.jsx';
 
-export default App
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/signin" element={<SignIn />} />
+    </Routes>
+  );
+};
+
+export default App;
