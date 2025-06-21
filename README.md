@@ -1,24 +1,38 @@
-# 📰 News App
+# 🗞️ News App – React + Vite
 
-A responsive React-based news application that allows users to browse the latest news by category, search for specific topics (coming soon), and log in with Auth0 authentication. Built with Tailwind CSS for modern styling and React Toastify for notifications.
+A modern and responsive news web application built with **React**, **Vite**, and **Tailwind CSS**, integrating **Auth0** for authentication and **NewsAPI.org** for real-time news fetching.  
+
+🔍 Features include:
+- Category-wise news filtering
+- Keyword search
+- Auth0 login/logout
+- Mobile responsive UI
+- Toast notifications
 
 ---
 
 ## ✨ Features
 
-- 🔒 Auth0 Login/Logout
-- 🧭 Category-based news filtering
-- 📱 Mobile-friendly with hamburger menu
-- 💬 Toast notifications for login feedback
-- 🎨 Tailwind CSS styling
-- 🔍 Search functionality (coming soon)
+- 🔐 **Auth0 Integration** – Log in/out with secure OAuth
+- 📰 **NewsAPI Integration** – Browse by category or search news
+- 🔎 **Search** – Query any keyword (e.g., "AI", "Space", "Politics")
+- 📱 **Fully Responsive** – Smooth UX on mobile and desktop
+- 🧠 **State Managed** – Via React hooks (`useState`, `useEffect`)
+- ⚡ **Built with Vite** – For ultra-fast build & HMR
 
 ---
 
-## 🛠️ Tech Stack
+## 🧪 Tech Stack
 
-- **React**
-- **Tailwind CSS**
-- **Auth0**
-- **React Toastify**
-- **NewsAPI**
+| Tech         | Description                           |
+|--------------|----------------------------------------|
+| React        | Frontend library                      |
+| Vite         | Blazing fast bundler                  |
+| Tailwind CSS | Utility-first CSS framework           |
+| Auth0        | Authentication and session management |
+| NewsAPI.org  | News data provider                    |
+| React Icons  | Icons used in navbar (hamburger, etc) |
+| Toastify     | For beautiful toast notifications     |
+
+---
+

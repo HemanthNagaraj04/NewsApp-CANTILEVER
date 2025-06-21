@@ -4,17 +4,31 @@ import { useEffect, useRef, useState } from "react";
 import { toast } from 'react-toastify';
 import { FaBars, FaTimes } from "react-icons/fa";
 
-
-const Navbar = ({ selectedCategory, setSelectedCategory }) => {
+const Navbar = ({ selectedCategory, setSelectedCategory, setSearchTerm }) => {
     const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
     const hasWelcomed = useRef(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const categories = ['General', 'Business', 'Technology', 'Entertainment', 'Sports', 'Science', 'Health'];
+    const [query, setQuery] = useState("");
 
     const handleCategoryClick = (e, category) => {
         e.preventDefault()
-        setSelectedCategory(category)
+        setSelectedCategory(category.toLowerCase())
         setMenuOpen(false);
+        setSearchTerm("");
+        setQuery("");
+    }
+
+    const handleEnter = (e) => {
+        if (e.key === 'Enter') {
+            setSearchTerm(query);
+            setQuery("");
+        }
+    }
+
+    const handleSearch = () => {
+        setSearchTerm(query);
+        setQuery("");
     }
 
     useEffect(() => {
@@ -34,11 +48,16 @@ const Navbar = ({ selectedCategory, setSelectedCategory }) => {
                         {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
                     </button>
                 </div>
-                <div className='flex gap-3 bg-[rgb(235,236,237)] w-full md:w-1/2 rounded-xl px-4 py-2'>
-                    <img src={searchImg} alt="Search icon" className='w-5 h-5 mt-0.5' />
+                <div className='flex gap-3 py-2 px-4 bg-[rgb(235,236,237)] w-full md:w-1/2 rounded-xl md:px-4 md:py-2'>
+                    <img src={searchImg} alt="Search icon" className='w-5 h-5 mt-2 md:mt-0.5 hidden md:block' />
                     <input type="text"
                         placeholder='Search News...'
+                        value={query}
+                        onChange={(e) => { setQuery(e.target.value) }}
+                        onKeyDown={handleEnter}
                         className="focus:outline-none w-full text-black placeholder-gray-400" />
+                    <button className="bg-white p-2 rounded-full md:hidden flex items-center justify-center"
+                        onClick={handleSearch}><img src={searchImg} alt="Search" className="w-6 h-5" /></button>
                 </div>
                 <div className="hidden md:block">
                     {isAuthenticated ?
@@ -52,7 +71,7 @@ const Navbar = ({ selectedCategory, setSelectedCategory }) => {
             <div className='bg-white p-4 w-full'>
                 <div className='hidden md:flex flex-wrap justify-around text-gray-500 gap-5 mx-2 md:mx-5'>
                     {categories.map((category, i) => (
-                        <h1 key={i} onClick={(e) => handleCategoryClick(e, category)} className={`cursor-pointer hover:text-black ${selectedCategory === category ? "bg-blue-500 p-3 rounded-3xl text-white" : "text-gray-500 p-2"
+                        <h1 key={i} onClick={(e) => handleCategoryClick(e, category)} className={`cursor-pointer ${selectedCategory === category ? "bg-blue-500 p-3 rounded-3xl text-white" : "text-gray-500 p-2 hover:text-black"
                             }`}>{category}</h1>
                     ))}
                 </div>
