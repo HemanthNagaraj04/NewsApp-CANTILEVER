@@ -1,27 +1,24 @@
-# 📰 News App (Still under development)
+# 📰 News App
 
-A modern and responsive News App built with **React**, **Vite**, and **Tailwind CSS**, powered by the [NewsAPI](https://newsapi.org/). Users can browse top news across categories, search for specific topics, and sign in with Google using Firebase authentication.
+A responsive React-based news application that allows users to browse the latest news by category, search for specific topics (coming soon), and log in with Auth0 authentication. Built with Tailwind CSS for modern styling and React Toastify for notifications.
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-- 🔍 Search news articles
-- 🌍 Browse by categories (India, World, Tech, etc.)
-- 📱 Responsive UI with Tailwind CSS
-- 🔐 Google Sign-In via Firebase Auth
-- ⚡ Built with Vite for fast performance
+- 🔒 Auth0 Login/Logout
+- 🧭 Category-based news filtering
+- 📱 Mobile-friendly with hamburger menu
+- 💬 Toast notifications for login feedback
+- 🎨 Tailwind CSS styling
+- 🔍 Search functionality (coming soon)
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **React**
-- **Vite**
 - **Tailwind CSS**
-- **Firebase Auth**
+- **Auth0**
+- **React Toastify**
 - **NewsAPI**
-
----
-
-
