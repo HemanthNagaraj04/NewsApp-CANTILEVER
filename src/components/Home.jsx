@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 
 const Home = ({ selectedCategory, searchTerm }) => {
-  const API_KEY = import.meta.env.VITE_CURRENT_NEWS_API_KEY;
+  const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
   const [news, setNews] = useState([]);
 
   const getNews = async () => {
 
-    const selection = searchTerm ? (`https://api.currentsapi.services/v1/search?keywords=${searchTerm}&apiKey=${API_KEY}`)
-      : (`https://api.currentsapi.services/v1/latest-news?category=${selectedCategory}&apiKey=${API_KEY}`);
+    const selection = searchTerm ? (`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${API_KEY}`)
+      : (`https://newsapi.org/v2/top-headlines?category=${selectedCategory}&apiKey=${API_KEY}`);
     try {
       const res = await fetch(selection);
       const data = await res.json();
-      setNews(data.news.slice(0, 13));
+      setNews(data.articles.slice(0, 13));
     } catch (error) {
-      console.log("Error fetching News",error);
+      console.log("Error fetching News", error);
     }
   }
 
@@ -31,8 +31,8 @@ const Home = ({ selectedCategory, searchTerm }) => {
         {topStories.length > 0 ? (
           topStories.map((article, index) => (
             <div key={index} className='shadow mx-5 mb-5 flex rounded-2xl bg-[rgb(41, 42, 45)] p-2 '>
-              {article.image && (
-                <img src={article.image} alt={article.title} className='w-30 h-30 object-cover md:w-45 md:h-45 rounded-xl mr-4' />
+              {article.urlToImage && (
+                <img src={article.urlToImage} alt={article.title} className='w-30 h-30 object-cover md:w-45 md:h-45 rounded-xl mr-4' />
               )}
               <div className='flex flex-col max-w-200'>
                 <a href={article.url} target='_blank' rel="noreferrer">
@@ -54,8 +54,8 @@ const Home = ({ selectedCategory, searchTerm }) => {
         {trending.length > 0 ? (
           trending.map((article, index) => (
             <div key={index} className='flex gap-2 mb-5 shadow p-3 rounded-xl mx-4'>
-              {article.image && (
-                <img src={article.image} alt={article.title} className='w-15 h-15 object-cover rounded-xl ml-5' />
+              {article.urlToImage && (
+                <img src={article.urlToImage} alt={article.title} className='w-15 h-15 object-cover rounded-xl ml-5' />
               )}
               <div className='flex flex-col max-w-100'>
                 <a href={article.url} target='_blank'>
