@@ -71,7 +71,7 @@ const Navbar = ({ selectedCategory, setSelectedCategory, setSearchTerm }) => {
             <div className='bg-white p-4 w-full'>
                 <div className='hidden md:flex flex-wrap justify-around text-gray-500 gap-5 mx-2 md:mx-5'>
                     {categories.map((category, i) => (
-                        <h1 key={i} onClick={(e) => handleCategoryClick(e, category)} className={`cursor-pointer ${selectedCategory === category ? "bg-blue-500 p-3 rounded-3xl text-white" : "text-gray-500 p-2 hover:text-black"
+                        <h1 key={i} onClick={(e) => handleCategoryClick(e, category)} className={`cursor-pointer ${selectedCategory === category.toLowerCase() ? "bg-blue-500 p-3 rounded-3xl text-white" : "text-gray-500 p-2 hover:text-black"
                             }`}>{category}</h1>
                     ))}
                 </div>
@@ -81,16 +81,16 @@ const Navbar = ({ selectedCategory, setSelectedCategory, setSearchTerm }) => {
                     <div className="">
                         {categories.map((category, i) => (
                             <h1 key={i} onClick={(e) => handleCategoryClick(e, category)}
-                                className={`text-center py-1 ${selectedCategory === category ? "bg-blue-600 text-white rounded-3xl px-4" : "text-gray-500"}`}>
+                                className={`text-center py-1 ${selectedCategory === category.toLowerCase() ? "bg-blue-600 text-white rounded-3xl px-4" : "text-gray-500"}`}>
                                 {category} </h1>
                         ))}
                     </div>
                     <div>
                         {isAuthenticated ?
-                            (<button className='bg-red-500 rounded-xl px-3 py-2 text-white text-sm'
+                            (<button className='bg-red-500 rounded-xl px-3 py-2 text-white text-sm mt-2'
                                 onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button>
                             ) : (
-                                <button className='bg-blue-600 rounded-xl px-3 py-2 text-white text-sm'
+                                <button className='bg-blue-600 rounded-xl px-3 py-2 text-white text-sm mt-2'
                                     onClick={() => loginWithRedirect()}>Log In</button>)}
                     </div>
                 </div>

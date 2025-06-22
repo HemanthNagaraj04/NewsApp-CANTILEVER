@@ -1,6 +1,6 @@
 # 🗞️ News App – React + Vite
 
-A modern and responsive news web application built with **React**, **Vite**, and **Tailwind CSS**, integrating **Auth0** for authentication and **NewsAPI.org** for real-time news fetching.  
+A modern and responsive news web application built with **React**, **Vite**, and **Tailwind CSS**, integrating **Auth0** for authentication and **Currents News API** for real-time news fetching.  
 
 🔍 Features include:
 - Category-wise news filtering
@@ -14,7 +14,7 @@ A modern and responsive news web application built with **React**, **Vite**, and
 ## ✨ Features
 
 - 🔐 **Auth0 Integration** – Log in/out with secure OAuth
-- 📰 **NewsAPI Integration** – Browse by category or search news
+- 📰 **Currents News API Integration** – Browse by category or search news
 - 🔎 **Search** – Query any keyword (e.g., "AI", "Space", "Politics")
 - 📱 **Fully Responsive** – Smooth UX on mobile and desktop
 - 🧠 **State Managed** – Via React hooks (`useState`, `useEffect`)
@@ -30,7 +30,8 @@ A modern and responsive news web application built with **React**, **Vite**, and
 | Vite         | Blazing fast bundler                  |
 | Tailwind CSS | Utility-first CSS framework           |
 | Auth0        | Authentication and session management |
-| NewsAPI.org  | News data provider                    |
+| Currents News| News data provider                    |
+| API          |                                       |
 | React Icons  | Icons used in navbar (hamburger, etc) |
 | Toastify     | For beautiful toast notifications     |
 
