@@ -5,17 +5,17 @@ const Home = ({ selectedCategory, searchTerm }) => {
   const [news, setNews] = useState([]);
 
   const getNews = async () => {
-
-    const selection = searchTerm ? (`https://newsapi.org/v2/everything?q=${searchTerm}&apiKey=${API_KEY}`)
-      : (`https://newsapi.org/v2/top-headlines?category=${selectedCategory}&apiKey=${API_KEY}`);
-    try {
-      const res = await fetch(selection);
-      const data = await res.json();
-      setNews(data.articles.slice(0, 13));
-    } catch (error) {
-      console.log("Error fetching News", error);
-    }
+  const selection = searchTerm
+  ? `https://newsapp-backend-4oq4.onrender.com/api/news?q=${searchTerm}`
+  : `https://newsapp-backend-4oq4.onrender.com/api/news?category=${selectedCategory}`;
+  try {
+    const res = await fetch(selection);
+    const data = await res.json();
+    setNews(data.articles.slice(0, 13));
+  } catch (error) {
+    console.log("Error fetching News", error);
   }
+};
 
   useEffect(() => {
     getNews()
