@@ -2,6 +2,21 @@
 
 A modern and responsive news web application built with **React**, **Vite**, and **Tailwind CSS**, integrating **Auth0** for authentication and **CNews API** for real-time news fetching.  
 
+---
+
+## Website Link:
+
+https://newsapp-cantilever.onrender.com/
+(The web application will take little time to load, kindly wait until the application loads)
+
+---
+
+## 🖼️ Preview
+
+![Website Preview](./public/News-App-home.png)
+
+---
+
 🔍 Features include:
 - Category-wise news filtering
 - Keyword search
